@@ -8,7 +8,7 @@ tokeniser= Tokenizer()
 num_epochs=100
 callback= tf.keras.callbacks.EarlyStopping(monitor="loss", patience=5, min_delta=0 ,mode="auto")
 def get_data():
-    file=open("/home/dj/Downloads/irish-lyrics-eof.txt","r").read()
+    file=open("Datasets/irish-lyrics-eof.txt","r").read()
     corpus=file.lower().split("\n")
     tokeniser.fit_on_texts(corpus)
     total_words= len(tokeniser.word_index)+1
@@ -28,7 +28,7 @@ def preprocess(corpus):
     xs,labels= input_sequences[:,:-1], input_sequences[:,-1]
     ys= tf.keras.utils.to_categorical(labels,num_classes=total_words)
     return xs,ys,max_seq
-# xs,ys,max_seq=preprocess(corpus)
+xs,ys,max_seq=preprocess(corpus)
 
 def build_model():
     model= tf.keras.models.Sequential([
@@ -44,15 +44,15 @@ def build_model():
     model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.01),loss="categorical_crossentropy",metrics=["acc"])
     print(model.summary())
     return  model
-# model=build_model()
-# history=model.fit(xs,ys,epochs=num_epochs,callbacks=[callback])
+model=build_model()
+history=model.fit(xs,ys,epochs=num_epochs,callbacks=[callback])
 def plot(history,string):
     plt.plot(history.history[string])
     plt.xlabel("Epochs")
     plt.ylabel(string)
     plt.show()
-# plot(history,"acc")
-# plot(history,"loss")
+plot(history,"acc")
+plot(history,"loss")
 def generate_text(seed_text,next_words):
     for i in range(next_words):
         token_list= tokeniser.texts_to_sequences([seed_text])[0]
