@@ -2,7 +2,9 @@
 Convolutional Neural Networks are mostly used for image processing tasks such as object classification, object detection, image captioning, object localisation etc.
 CNN's use filters to extract features from image. Tensorflow has Convolutional layer in its keras api.
 ##### Syntax of conv layer for 2d image: 
+```python
 tf.keras.layers.Conv2D(filters, kernel_size, strides, padding, activation, kernel_initializer, ...)
+```
 
 #### General steps to follow while solving CNN based problems:
  1. Split image dataset in training and validation(you can use TFs ImageDataGenerator)
