@@ -3,12 +3,12 @@ import csv
 import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-train_path = "/home/dj/Downloads/sign_language/sign_mnist_train/sign_mnist_train.csv"
-test_path = "/home/dj/Downloads/sign_language/sign_mnist_test/sign_mnist_test.csv"
+train_path = "/home/dj/PycharmProjects/first/Datasets/sign_language/sign_mnist_train/sign_mnist_train.csv"
+test_path = "/home/dj/PycharmProjects/first/Datasets/sign_language/sign_mnist_test/sign_mnist_test.csv"
 def get_data(path):
 
     images,labels=[],[]
-    with open(file=train_path,mode="r") as train_file:
+    with open(file=path,mode="r") as train_file:
         reader=csv.reader(train_file)
         next(reader)
         for row in reader:

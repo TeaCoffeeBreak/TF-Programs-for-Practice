@@ -3,7 +3,6 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import  ImageDataGenerator
 import os
 import matplotlib.pyplot as plt
-from Models.ResNet50 import ResNet50
 def get_data():
     _URL = 'https://storage.googleapis.com/mledu-datasets/cats_and_dogs_filtered.zip'
 
@@ -68,21 +67,19 @@ def plot_img(train_gen):
     plt.show()
 plot_img(train_gen)
 def build_model():
-    # model=tf.keras.Sequential([
-    #     tf.keras.layers.Conv2D(64,(3,3),padding='same',input_shape=(150,150,3), activation='relu'),
-    #     tf.keras.layers.MaxPooling2D((2,2)),
-    #     # tf.keras.layers.Conv2D(32,(3,3),padding='same',activation='relu'),
-    #     # tf.keras.layers.MaxPooling2D((2,2)),
-    #     tf.keras.layers.Conv2D(64,(3,3),padding='same',activation='relu'),
-    #     tf.keras.layers.MaxPooling2D((2,2)),
-    #     # tf.keras.layers.Conv2D(32, (3, 3), activation='relu'),
-    #     # tf.keras.layers.MaxPooling2D((2, 2)),
-    #     tf.keras.layers.Flatten(),
-    #     tf.keras.layers.Dense(512,activation='relu'),
-    #     tf.keras.layers.Dense(1,activation='sigmoid')
-    # ])
-    resnet= ResNet50()
-    model = resnet.resnet50(input_shape=(150,150,3), classes=2)
+    model=tf.keras.Sequential([
+        tf.keras.layers.Conv2D(64,(3,3),padding='same',input_shape=(150,150,3), activation='relu'),
+        tf.keras.layers.MaxPooling2D((2,2)),
+        # tf.keras.layers.Conv2D(32,(3,3),padding='same',activation='relu'),
+        # tf.keras.layers.MaxPooling2D((2,2)),
+        tf.keras.layers.Conv2D(64,(3,3),padding='same',activation='relu'),
+        tf.keras.layers.MaxPooling2D((2,2)),
+        # tf.keras.layers.Conv2D(32, (3, 3), activation='relu'),
+        # tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(512,activation='relu'),
+        tf.keras.layers.Dense(1,activation='sigmoid')
+    ])
     print(model.summary())
     return model
 
