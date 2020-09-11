@@ -15,7 +15,7 @@ tf.keras.layers.Conv2D(filters, kernel_size, strides, padding, activation, kerne
  (Don't use transfer learning directly on simple datasets. It can waste your time and size of model created will be larger)
  
  
- #### Problem statements for the program
+ #### Following are the different datasets used:
  1. MNIST: mnist is classification dataset for handwritten digits from 0-9. This dataset is available in tensorflow. It is a very popular dataset and you can start your cnn journey with this dataset.
  2. Sign mnist: This sign language dataset consist of 27455 training and 7172 test images data of 25 different hand signs. This dataset is available in csv format.
  3. Happy or Sad: This is binary emotion classification dataset which consist of 40 images of each happy and sad emoji. 
