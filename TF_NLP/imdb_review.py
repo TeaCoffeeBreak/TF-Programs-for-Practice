@@ -11,6 +11,7 @@ oov_token="<oov>"
 num_epochs=10
 word_index=None
 def convert_to_tokens(sentences):
+    global word_index
     tokeniser= Tokenizer(num_words=vocab_si,oov_token=oov_token)
     tokeniser.fit_on_texts(sentences)
     word_index=tokeniser.word_index
@@ -20,6 +21,7 @@ def convert_to_tokens(sentences):
 def get_data():
     imdb,info= tfds.load("imdb_reviews",with_info=True,as_supervised=True)
     train,test= imdb["train"],imdb["test"]
+
     training_data=[]
     training_labels=[]
     for s,l in train:
