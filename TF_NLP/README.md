@@ -13,4 +13,4 @@ Text is one of the category of data that are widely used for processing. Natural
 1. IMDB Reviews: This dataset contains 50000 movie reviews with labels good or bad. It is available in tensorflow datasets.
 2. Irish Lyrics: This dataset has irish poems with more than 13000 words. It used for text generation using word based encoding
 3. Shakespeare: This dataset contains Shakespeare's play scripts with more than 202,000 words. This dataset is used for text generation using character based encoding.
-4. Url classification: This is a classification dataset that can be used to classify if url is malicious or not. It contains more than 400,000 urls with labels good or bad.
+4. URL classification: This is a classification dataset that can be used to classify if url is malicious or not. It contains more than 400,000 urls with labels good or bad.
